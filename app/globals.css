@@ -1,26 +1,1003 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ===== LOGIN PAGE ===== */
+.lg-page,
+.lg-page *,
+.lg-page *::before,
+.lg-page *::after {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.lg-page {
+  display: flex;
+  min-height: 100vh;
+  background: #f4fbf7;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.lg-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  width: 50%;
+  flex-shrink: 0;
+  padding: 48px 64px;
+  background: #146122;
+}
+
+.lg-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.lg-heroCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.lg-title {
+  margin: 0;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.lg-subtitle {
+  margin: 0;
+  color: #d8f0e0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+}
+
+.lg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 460px;
+  align-self: center;
+  padding: 32px;
+  border-radius: 24px;
+  border: 2px solid #4d834a;
+  background: #fff;
+  box-shadow: 0 16px 32px rgba(15, 116, 21, 0.15);
+}
+
+.lg-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #d8efe3;
+  background: #f4fbf7;
+}
+
+.lg-field input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #146122;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.lg-field input::placeholder {
+  color: #146122;
+}
+
+.lg-field:focus-within {
+  border-color: #3da449;
+}
+
+.lg-lockIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  background: #eaf6ee;
+}
+
+.lg-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.lg-login,
+.lg-register {
+  display: flex;
+  align-self: stretch;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  border-radius: 16px;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.lg-login {
+  border: 0;
+  background: #3da449;
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(61, 164, 73, 0.25);
+}
+
+.lg-register {
+  border: 2px solid #3da449;
+  background: #fff;
+  color: #146122;
+}
+
+.lg-or {
+  margin: 0;
+  color: #5f7a64;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.lg-visual {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: #f4fbf7;
+}
+
+.lg-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 900px) {
+  .lg-visual {
+    display: none;
+  }
+
+  .lg-panel {
+    width: 100%;
+    padding: 32px 20px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+
+/* ===== SPMB ADMIN DASHBOARD ===== */
+
+.spmb-admin {
+  --admin-green: #95bf91;
+  --admin-dark-green: #4f8750;
+  --admin-light: #c9f6df;
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 18px;
+  width: 100%;
+  min-height: 100vh;
+  padding: 24px;
+  background: #f5f6f5;
+  color: #202020;
   font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.spmb-admin *,
+.spmb-admin *::before,
+.spmb-admin *::after {
+  box-sizing: border-box;
+}
+
+.spmb-admin button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.spmb-admin-sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 640px;
+  overflow: hidden;
+  padding: 22px 12px;
+  border-radius: 5px;
+  background: var(--admin-green);
+  color: white;
+}
+
+.spmb-admin-school-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.spmb-admin-school-small > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.spmb-admin-school-small strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.spmb-admin-school-small span {
+  font-size: 10px;
+  opacity: 0.9;
+}
+
+.spmb-admin-logo {
+  display: grid;
+  flex-shrink: 0;
+  width: 39px;
+  height: 39px;
+  place-items: center;
+  border: 2px solid #e1bb25;
+  border-radius: 50%;
+  background: #fff6c6;
+  color: #3c8d42;
+  font-size: 29px;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+.spmb-admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  position: relative;
+  z-index: 1;
+}
+
+.spmb-admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 9px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: white;
+  text-align: left;
+  font-size: 11px !important;
+  transition: background 0.2s;
+}
+
+.spmb-admin-nav-item:hover,
+.spmb-admin-nav-item.active {
+  background: #76b844;
+}
+
+.spmb-admin-nav-icon {
+  display: inline-flex;
+  width: 16px;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.spmb-admin-sidebar-decoration {
+  position: absolute;
+  right: -28px;
+  bottom: 0;
+  left: -25px;
+  height: 115px;
+  opacity: 0.17;
+  background: repeating-linear-gradient(
+    0deg,
+    #447647 0,
+    #447647 3px,
+    transparent 3px,
+    transparent 12px
+  );
+  transform: skewY(-9deg);
+}
+
+.spmb-admin-building {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  height: 80px;
+  padding: 18px 25px;
+  border-top: 8px solid #48774a;
+}
+
+.spmb-admin-building span {
+  background: #48774a;
+}
+
+.spmb-admin-content {
+  min-width: 0;
+  padding: 8px 10px 18px;
+  background: #fff;
+}
+
+.spmb-admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  min-height: 52px;
+  margin-bottom: 12px;
+}
+
+.spmb-admin-school {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.spmb-admin-school strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.spmb-admin-school p {
+  margin: 3px 0 0;
+  font-size: 10px;
+}
+
+.spmb-admin-account {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.spmb-admin-bell {
+  color: #888;
+}
+
+.spmb-admin-profile-wrap {
+  position: relative;
+}
+
+.spmb-admin-profile-button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 5px;
+  border: 0;
+  background: white;
+  font-size: 11px !important;
+}
+
+.spmb-admin-user-icon {
+  color: #777;
+  font-size: 19px;
+}
+
+.spmb-admin-profile-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 180px;
+  padding: 15px;
+  border: 1px solid #e4e8e4;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 8px 24px #00000015;
+  font-size: 12px;
+}
+
+.spmb-admin-profile-menu span {
+  color: #777;
+}
+
+.spmb-admin-profile-menu button {
+  padding: 7px;
+  border: 0;
+  border-radius: 5px;
+  background: #edf6ec;
+}
+
+.spmb-admin-breadcrumb {
+  margin: 0 0 10px;
+  color: #aaa;
+  font-size: 10px;
+}
+
+.spmb-admin-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 112px;
+  overflow: hidden;
+  padding: 18px;
+  border-radius: 5px;
+  background: linear-gradient(105deg, #57c48b 0%, #33dc19 58%);
+  color: white;
+}
+
+.spmb-admin-banner-text {
+  position: relative;
+  z-index: 2;
+}
+
+.spmb-admin-banner h1 {
+  margin: 0 0 8px;
+  font-size: clamp(17px, 2vw, 23px);
+  font-weight: 400;
+}
+
+.spmb-admin-banner p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.spmb-admin-wave {
+  display: block;
+  margin: 4px 0 0 42px;
+  font-size: 23px;
+}
+
+.spmb-admin-banner-shape {
+  position: absolute;
+  top: -35%;
+  width: 60px;
+  height: 180%;
+  transform: skewX(-31deg);
+}
+
+.spmb-admin-banner .shape-one {
+  left: 27%;
+  background: #65ef91;
+  opacity: 0.65;
+}
+
+.spmb-admin-banner .shape-two {
+  left: 34%;
+  background: #23c83d;
+  opacity: 0.65;
+}
+
+.spmb-admin-top-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 25px;
+  margin-top: 18px;
+}
+
+.spmb-admin-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 2px solid var(--admin-dark-green);
+  border-radius: 23px;
+  background: white;
+}
+
+.spmb-admin-top-grid > .spmb-admin-card {
+  padding: 12px 15px 15px;
+}
+
+.spmb-admin-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 25px;
+  margin-bottom: 6px;
+}
+
+.spmb-admin-card-title h2 {
+  margin: 0;
+  font-size: clamp(17px, 1.7vw, 22px);
+  font-weight: 400;
+}
+
+.spmb-admin-person,
+.spmb-admin-people {
+  font-size: 29px;
+  line-height: 1;
+}
+
+.spmb-admin-chart {
+  position: relative;
+  height: 125px;
+  overflow: hidden;
+  border: 2px solid #171717;
+  border-radius: 13px;
+  background-color: white;
+  background-image:
+    linear-gradient(#4c2525 1px, transparent 1px),
+    linear-gradient(90deg, #4c2525 1px, transparent 1px);
+  background-size: 25px 25px;
+}
+
+.spmb-admin-chart svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.spmb-admin-chart-caption {
+  margin: 8px 0 0;
+  color: #777;
+  font-size: 10px;
+}
+
+.spmb-admin-applicant-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 0;
+}
+
+.spmb-admin-applicant {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 31px;
+  padding: 6px 36px;
+  border-radius: 7px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.spmb-admin-applicant-avatar {
+  position: absolute;
+  left: 8px;
+  color: #383838;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.spmb-admin-text-link {
+  display: block;
+  margin: 12px auto 0;
+  padding: 5px;
+  border: 0;
+  background: transparent;
+  color: var(--admin-dark-green);
+  font-size: 11px !important;
+}
+
+.spmb-admin-distribution {
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) minmax(90px, 0.75fr) minmax(120px, 1.25fr) minmax(100px, 0.65fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 150px;
+  margin-top: 14px;
+  padding: 12px 0 12px 16px;
+}
+
+.spmb-admin-pie {
+  width: min(100%, 150px);
+  aspect-ratio: 1;
+  justify-self: center;
+  border-radius: 50%;
+  background: conic-gradient(
+    #f64e55 0% 10%,
+    #c9df58 10% 30%,
+    #d4ff00 30% 50%,
+    #43e3e7 50% 100%
+  );
+}
+
+.spmb-admin-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spmb-admin-legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.spmb-admin-legend-item i {
+  display: block;
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.spmb-admin-distribution-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.spmb-admin-school-photo {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 125px;
+  overflow: hidden;
+  border-radius: 70px 0 0 70px;
+  background: linear-gradient(#d6f1d7, #85c88c);
+}
+
+.spmb-admin-building-art {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4px;
+  padding: 10px 5px;
+  transform: perspective(180px) rotateY(-8deg);
+}
+
+.spmb-admin-building-roof {
+  height: 15px;
+  background: #d2e8a9;
+  border-bottom: 4px solid #78a76b;
+}
+
+.spmb-admin-building-floor {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3px;
+  height: 37px;
+  padding: 4px;
+  border: 3px solid #a6d88e;
+  background: #80c4c0;
+}
+
+.spmb-admin-building-floor span {
+  background: #e7f4c7;
+  border: 1px solid #7ba89c;
+}
+
+.spmb-admin-building-floor.lower {
+  height: 42px;
+  background: #d0e9b7;
+}
+
+.spmb-admin-photo-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  background: #ffffffa8;
+  font-size: 9px;
+  text-align: center;
+}
+
+.spmb-admin-footer {
+  padding-top: 18px;
+  color: #aaa;
+  font-size: 10px;
+  text-align: right;
+}
+
+.spmb-admin-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 380px;
+  margin-top: 20px;
+  padding: 30px;
+  border: 1px solid #e2eae2;
+  border-radius: 15px;
+  background: #f9fcf9;
+}
+
+.spmb-admin-placeholder-icon {
+  color: #4f8750;
+  font-size: 35px;
+}
+
+.spmb-admin-placeholder h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.spmb-admin-placeholder p {
+  color: #777;
+  font-size: 14px;
+}
+
+.spmb-admin-placeholder button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 7px;
+  background: #4f8750;
+  color: white;
+}
+
+/* Responsive: tablet dan HP */
+
+@media (max-width: 900px) {
+  .spmb-admin {
+    grid-template-columns: 155px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .spmb-admin-top-grid {
+    gap: 12px;
+  }
+
+  .spmb-admin-distribution {
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
+  }
+
+  .spmb-admin-distribution-description {
+    font-size: 12px;
+  }
+
+  .spmb-admin-school-photo {
+    min-height: 100px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .spmb-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .spmb-admin-sidebar {
+    min-height: auto;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .spmb-admin-school-small {
+    justify-content: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .spmb-admin-nav {
+    flex-direction: row;
+    gap: 7px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .spmb-admin-nav-item {
+    flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
+  }
+
+  .spmb-admin-sidebar-decoration {
+    display: none;
+  }
+
+  .spmb-admin-content {
+    padding: 5px 0;
+    background: transparent;
+  }
+
+  .spmb-admin-header {
+    align-items: flex-start;
+  }
+
+  .spmb-admin-school {
+    gap: 8px;
+  }
+
+  .spmb-admin-school .spmb-admin-logo {
+    width: 33px;
+    height: 33px;
+    font-size: 24px;
+  }
+
+  .spmb-admin-school strong {
+    font-size: 12px;
+  }
+
+  .spmb-admin-school p {
+    max-width: 175px;
+    font-size: 9px;
+    line-height: 1.4;
+  }
+
+  .spmb-admin-account {
+    gap: 5px;
+  }
+
+  .spmb-admin-bell {
+    display: none;
+  }
+
+  .spmb-admin-profile-button {
+    gap: 5px;
+    font-size: 10px !important;
+  }
+
+  .spmb-admin-banner {
+    min-height: 120px;
+    padding: 16px;
+  }
+
+  .spmb-admin-banner h1 {
+    font-size: 20px;
+  }
+
+  .spmb-admin-banner-shape {
+    left: 65% !important;
+  }
+
+  .spmb-admin-top-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .spmb-admin-top-grid > .spmb-admin-card {
+    padding: 15px;
+    border-radius: 18px;
+  }
+
+  .spmb-admin-card-title h2 {
+    font-size: 20px;
+  }
+
+  .spmb-admin-chart {
+    height: 140px;
+  }
+
+  .spmb-admin-applicant-list {
+    gap: 10px;
+  }
+
+  .spmb-admin-applicant {
+    min-height: 38px;
+  }
+
+  .spmb-admin-distribution {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 18px;
+  }
+
+  .spmb-admin-pie {
+    width: min(100%, 135px);
+  }
+
+  .spmb-admin-legend-item {
+    font-size: 11px;
+  }
+
+  .spmb-admin-legend-item i {
+    width: 15px;
+    height: 15px;
+  }
+
+  .spmb-admin-distribution-description {
+    font-size: 11px;
+  }
+
+  .spmb-admin-school-photo {
+    min-height: 110px;
+  }
+
+  .spmb-admin-footer {
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .spmb-admin-distribution {
+    grid-template-columns: 1fr;
+  }
+
+  .spmb-admin-distribution-description {
+    text-align: center;
+  }
+}
+
+
+
+/* ===== Verifikasi data siswa ===== */
+.verif-wrapper {
+  padding: 8px 0 24px;
+  color: #000;
+}
+
+.verif-title-bar {
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 14px;
+  margin-bottom: 14px;
+  background: #fff;
+}
+
+.verif-grid {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) 150px 150px 150px;
+  align-items: center;
+  text-align: center;
+}
+
+.verif-columns {
+  font-size: 13px;
+  margin-bottom: 6px;
+  padding-right: 20px;
+}
+
+.verif-name-col {
+  text-align: left;
+}
+
+.verif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.verif-row {
+  border: 1.5px solid #444;
+  background: #fff;
+  padding: 0 20px 0 14px;
+  height: 54px;
+  font-size: 13px;
+}
+
+.verif-num {
+  margin-left: 6px;
+}
+
+.verif-mark {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s ease, background 0.1s ease;
+}
+
+.verif-mark:hover {
+  background: #f0f0f0;
+  transform: scale(1.06);
+}
+
+.verif-mark:active {
+  transform: scale(0.96);
 }
