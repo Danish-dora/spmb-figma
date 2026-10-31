@@ -12,12 +12,13 @@
     "bcryptjs": "^3.0.3",
     "jose": "^6.2.12",
     "mysql2": "^3.24.5",
-    "next": "16.4.0",
+    "next": "^16.4.3",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
+    "@types/react": "19.3.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
     "tailwindcss": "^4"

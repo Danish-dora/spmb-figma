@@ -3,7 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { submitLogin } from "@/lib/login-client";
+import { submitLogin } from "../../../lib/login-client.js";
+
+
 
 const LOGO = "/asset/logo.png";
 const EMAIL_ICON = "/icon/email.jpg";

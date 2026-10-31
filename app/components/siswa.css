@@ -1,0 +1,1652 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --siswa-green-950: #103e2a;
+  --siswa-green-900: #145333;
+  --siswa-green-800: #176b3d;
+  --siswa-green-700: #21844a;
+  --siswa-green-600: #2da356;
+  --siswa-green-100: #eaf6e9;
+  --siswa-lime: #b5e879;
+  --siswa-text: #182e23;
+  --siswa-muted: #758379;
+  --siswa-line: #e8eee7;
+  --siswa-bg: #f7f9f5;
+}
+
+.siswa-app,
+.siswa-app * {
+  box-sizing: border-box;
+}
+
+.siswa-app {
+  min-height: 100vh;
+  display: flex;
+  background: var(--siswa-bg);
+  color: var(--siswa-text);
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+}
+
+/* SIDEBAR */
+
+.siswa-sidebar {
+  position: sticky;
+  top: 0;
+  width: 260px;
+  min-width: 260px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 19px 22px;
+  color: white;
+  overflow-y: auto;
+  background:
+    radial-gradient(
+      circle at 10% 100%,
+      rgba(113, 189, 91, 0.25),
+      transparent 35%
+    ),
+    linear-gradient(165deg, #155d38 0%, #10462e 55%, #0c3525 100%);
+}
+
+.siswa-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  padding: 5px 0 18px;
+}
+
+.siswa-brand img {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.siswa-brand-name {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+.siswa-brand-tagline {
+  margin-top: 5px;
+  color: #d2e7d6;
+  font-size: 12px;
+}
+
+.siswa-sidebar-divider {
+  height: 1px;
+  margin: 9px 3px 24px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.siswa-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.siswa-nav-link {
+  min-height: 49px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #d5e5d9;
+  text-decoration: none;
+  border-radius: 13px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.siswa-nav-link:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.siswa-nav-link.active {
+  color: #fff;
+  background: linear-gradient(100deg, #39a84e, #66bd4c);
+  box-shadow: 0 6px 16px rgba(7, 33, 19, 0.17);
+}
+
+.siswa-nav-icon {
+  width: 24px;
+  font-size: 23px;
+  line-height: 1;
+  text-align: center;
+}
+
+.siswa-sidebar-bottom {
+  margin-top: auto;
+  padding: 18px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.siswa-sidebar-bottom-icon {
+  color: var(--siswa-lime);
+  font-size: 25px;
+}
+
+.siswa-sidebar-bottom p {
+  margin: 8px 0 0;
+  color: #d1e4d4;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* MAIN AND HEADER */
+
+.siswa-main {
+  min-width: 0;
+  flex: 1;
+}
+
+.siswa-header {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  min-height: 76px;
+  padding: 0 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid #edf1eb;
+  backdrop-filter: blur(14px);
+}
+
+.siswa-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6c796f;
+}
+
+.siswa-breadcrumb-home {
+  font-size: 24px;
+  color: var(--siswa-green-800);
+}
+
+.siswa-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.siswa-notification {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: #4e6557;
+  background: white;
+  border: 1px solid var(--siswa-line);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.siswa-notification:hover {
+  background: var(--siswa-green-100);
+}
+
+.siswa-notification-dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ed6357;
+  border: 1px solid white;
+}
+
+.siswa-profile-wrap {
+  position: relative;
+}
+
+.siswa-profile-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  color: var(--siswa-text);
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.siswa-avatar {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: var(--siswa-green-800);
+  background: var(--siswa-green-100);
+  border: 1px solid #d7ebd2;
+  border-radius: 50%;
+}
+
+.siswa-chevron {
+  font-size: 18px;
+}
+
+.siswa-profile-menu {
+  position: absolute;
+  top: calc(100% + 13px);
+  right: 0;
+  z-index: 20;
+  width: 190px;
+  padding: 8px;
+  background: white;
+  border: 1px solid var(--siswa-line);
+  border-radius: 13px;
+  box-shadow: 0 12px 30px rgba(18, 50, 31, 0.12);
+}
+
+.siswa-profile-menu-title {
+  padding: 10px;
+  color: var(--siswa-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.siswa-profile-menu a {
+  display: block;
+  padding: 11px 10px;
+  color: var(--siswa-text);
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.siswa-profile-menu a:hover {
+  background: var(--siswa-green-100);
+}
+
+/* CONTENT */
+
+.siswa-content {
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 30px 38px 20px;
+}
+
+.siswa-welcome {
+  position: relative;
+  min-height: 188px;
+  padding: 35px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  overflow: hidden;
+  color: white;
+  border-radius: 22px;
+  background:
+    radial-gradient(
+      ellipse at 92% 120%,
+      rgba(173, 235, 114, 0.46),
+      transparent 38%
+    ),
+    linear-gradient(115deg, #104c30 0%, #197542 65%, #399c4e 100%);
+  box-shadow: 0 10px 25px rgba(21, 88, 47, 0.11);
+}
+
+.siswa-welcome-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.siswa-eyebrow,
+.siswa-section-kicker {
+  display: block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.siswa-eyebrow {
+  margin-bottom: 12px;
+  color: #c7ecab;
+}
+
+.siswa-welcome h1 {
+  margin: 0;
+  font-size: clamp(26px, 3vw, 37px);
+  font-weight: 800;
+  letter-spacing: -1.3px;
+  line-height: 1.2;
+}
+
+.siswa-welcome h1 span {
+  color: #b9ed77;
+}
+
+.siswa-welcome p {
+  max-width: 510px;
+  margin: 12px 0 0;
+  color: #e0f0e2;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.siswa-welcome-symbol {
+  position: relative;
+  z-index: 2;
+  width: 100px;
+  min-width: 100px;
+  color: #c4ed8e;
+  opacity: 0.95;
+}
+
+.siswa-welcome-decoration {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  right: 100px;
+  top: -190px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 25px rgba(255, 255, 255, 0.035),
+    0 0 0 50px rgba(255, 255, 255, 0.025);
+}
+
+/* QUICK ACTIONS */
+
+.siswa-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+  margin: 22px 0 27px;
+}
+
+.siswa-quick-card {
+  min-width: 0;
+  min-height: 100px;
+  padding: 18px 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--siswa-text);
+  text-decoration: none;
+  background: white;
+  border: 1px solid #edf1ea;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(26, 65, 39, 0.025);
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.siswa-quick-card:hover {
+  transform: translateY(-3px);
+  border-color: #b9dcb5;
+  box-shadow: 0 9px 22px rgba(26, 65, 39, 0.07);
+}
+
+.siswa-card-icon {
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 25px;
+  background: linear-gradient(140deg, #319e4d, #17633a);
+  border-radius: 13px;
+}
+
+.siswa-quick-copy {
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.siswa-quick-copy strong {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.siswa-quick-copy small {
+  color: var(--siswa-muted);
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.siswa-quick-arrow {
+  color: var(--siswa-green-700);
+  font-size: 18px;
+}
+
+/* DASHBOARD PANELS */
+
+.siswa-dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.siswa-panel {
+  min-width: 0;
+  padding: 23px;
+  background: white;
+  border: 1px solid #eaf0e8;
+  border-radius: 19px;
+  box-shadow: 0 5px 18px rgba(26, 65, 39, 0.035);
+}
+
+.siswa-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 21px;
+}
+
+.siswa-section-kicker {
+  margin-bottom: 7px;
+  color: #7a9b7c;
+  font-size: 8px;
+}
+
+.siswa-panel-heading h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.siswa-panel-heading > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: var(--siswa-green-800);
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.siswa-panel-heading > a:hover,
+.siswa-text-link:hover {
+  color: var(--siswa-green-600);
+}
+
+/* RESULT */
+
+.siswa-result-body {
+  min-height: 200px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border: 1px solid #e3efdf;
+  border-radius: 16px;
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(184, 230, 154, 0.2),
+      transparent 40%
+    ),
+    #f8fbf5;
+}
+
+.siswa-result-illustration {
+  position: relative;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+}
+
+.siswa-result-circle {
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  color: white;
+  border: 7px solid #65b86b;
+  border-right-color: #d5eacb;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #278f48, #17633a);
+  box-shadow: 0 7px 18px rgba(33, 132, 74, 0.15);
+}
+
+.siswa-result-circle span {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.siswa-result-spark {
+  position: absolute;
+  top: -13px;
+  right: -9px;
+  color: #7ebf48;
+  font-size: 25px;
+}
+
+.siswa-result-info {
+  min-width: 0;
+}
+
+.siswa-status-pill {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  color: #85631b;
+  background: #fff3d3;
+  border-radius: 30px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.siswa-result-info h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.siswa-result-info p {
+  margin: 5px 0;
+  color: #526358;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.siswa-result-info .siswa-muted {
+  color: var(--siswa-muted);
+  font-size: 9px;
+}
+
+.siswa-primary-button {
+  min-height: 38px;
+  margin-top: 12px;
+  padding: 0 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: white;
+  background: linear-gradient(100deg, #176b3d, #319d4d);
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.siswa-primary-button:hover {
+  background: #145333;
+}
+
+/* SCHEDULE */
+
+.siswa-schedule-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.siswa-schedule-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px 0;
+  border-bottom: 1px solid #edf1eb;
+}
+
+.siswa-schedule-item:first-child {
+  padding-top: 0;
+}
+
+.siswa-schedule-item:last-child {
+  border-bottom: 0;
+}
+
+.siswa-schedule-icon {
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--siswa-green-800);
+  background: var(--siswa-green-100);
+  border-radius: 13px;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.siswa-schedule-info {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.siswa-schedule-info strong {
+  font-size: 11px;
+}
+
+.siswa-schedule-info span {
+  color: var(--siswa-muted);
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.siswa-schedule-number {
+  color: #9dbb99;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.siswa-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  color: var(--siswa-green-800);
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ANNOUNCEMENT */
+
+.siswa-announcement-panel {
+  grid-column: 1;
+}
+
+.siswa-announcement-item {
+  padding: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background: #f7faf4;
+  border: 1px solid #e8f0e3;
+  border-radius: 15px;
+}
+
+.siswa-announcement-icon {
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--siswa-green-800);
+  background: #e4f2d9;
+  border-radius: 13px;
+  font-size: 23px;
+}
+
+.siswa-announcement-copy {
+  min-width: 0;
+}
+
+.siswa-announcement-category {
+  color: var(--siswa-green-800);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.siswa-announcement-copy h3 {
+  margin: 7px 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.siswa-announcement-copy p {
+  margin: 0 0 11px;
+  color: #67756a;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.siswa-announcement-date {
+  color: #879388;
+  font-size: 9px;
+}
+
+/* MOTIVATION */
+
+.siswa-motivation {
+  position: relative;
+  min-height: 150px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  overflow: hidden;
+  border: 1px solid #e3efdc;
+  border-radius: 19px;
+  background: linear-gradient(120deg, #eff8e8, #fff 70%);
+}
+
+.siswa-motivation-icon {
+  width: 52px;
+  min-width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: linear-gradient(140deg, #7ab94e, #25834a);
+  border-radius: 16px;
+  font-size: 27px;
+}
+
+.siswa-motivation > div:nth-child(2) {
+  position: relative;
+  z-index: 1;
+}
+
+.siswa-motivation > div:nth-child(2) > span {
+  color: #739c65;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.siswa-motivation h2 {
+  margin: 8px 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.siswa-motivation p {
+  margin: 0;
+  color: #69766c;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.siswa-motivation-star {
+  position: absolute;
+  top: 12px;
+  right: 17px;
+  color: #a8d76d;
+  font-size: 30px;
+}
+
+.siswa-footer {
+  padding: 23px 3px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: #929d92;
+  font-size: 9px;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 1450px) {
+  .siswa-content {
+    padding-right: 48px;
+    padding-left: 48px;
+  }
+
+  .siswa-quick-card {
+    padding: 20px;
+  }
+
+  .siswa-quick-copy strong {
+    font-size: 12px;
+  }
+
+  .siswa-quick-copy small {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .siswa-sidebar {
+    width: 225px;
+    min-width: 225px;
+  }
+
+  .siswa-content {
+    padding: 25px 24px 20px;
+  }
+
+  .siswa-header {
+    padding: 0 24px;
+  }
+
+  .siswa-quick-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .siswa-dashboard-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .siswa-announcement-panel {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .siswa-app {
+    display: block;
+  }
+
+  .siswa-sidebar {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: 12px 15px;
+    overflow: visible;
+  }
+
+  .siswa-brand {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 0;
+    text-align: left;
+  }
+
+  .siswa-brand img {
+    width: 43px;
+    height: 43px;
+    margin: 0;
+  }
+
+  .siswa-brand-name {
+    font-size: 16px;
+  }
+
+  .siswa-brand-tagline {
+    display: none;
+  }
+
+  .siswa-sidebar-divider,
+  .siswa-sidebar-bottom {
+    display: none;
+  }
+
+  .siswa-nav {
+    flex-direction: row;
+    gap: 7px;
+    margin-top: 13px;
+    padding-bottom: 2px;
+    overflow-x: auto;
+  }
+
+  .siswa-nav-link {
+    min-height: 39px;
+    flex-shrink: 0;
+    padding: 0 12px;
+    gap: 7px;
+    border-radius: 10px;
+    font-size: 10px;
+  }
+
+  .siswa-nav-icon {
+    width: auto;
+    font-size: 16px;
+  }
+
+  .siswa-header {
+    position: relative;
+    min-height: 61px;
+    padding: 0 18px;
+  }
+
+  .siswa-header-actions {
+    gap: 10px;
+  }
+
+  .siswa-breadcrumb {
+    gap: 7px;
+    font-size: 10px;
+  }
+
+  .siswa-breadcrumb-home {
+    font-size: 19px;
+  }
+
+  .siswa-profile-button {
+    gap: 6px;
+    font-size: 10px;
+  }
+
+  .siswa-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .siswa-notification {
+    width: 34px;
+    height: 34px;
+  }
+
+  .siswa-content {
+    padding: 20px 15px;
+  }
+
+  .siswa-welcome {
+    min-height: 165px;
+    padding: 25px 22px;
+    border-radius: 17px;
+  }
+
+  .siswa-welcome h1 {
+    font-size: 26px;
+  }
+
+  .siswa-welcome p {
+    max-width: 270px;
+    font-size: 10px;
+  }
+
+  .siswa-welcome-symbol {
+    position: absolute;
+    right: 14px;
+    bottom: 8px;
+    width: 60px;
+    min-width: 60px;
+    opacity: 0.35;
+  }
+
+  .siswa-quick-actions {
+    gap: 10px;
+    margin: 17px 0 20px;
+  }
+
+  .siswa-quick-card {
+    min-height: 83px;
+    padding: 12px 10px;
+    gap: 9px;
+    border-radius: 13px;
+  }
+
+  .siswa-card-icon {
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+
+  .siswa-quick-copy strong {
+    font-size: 10px;
+  }
+
+  .siswa-quick-copy small {
+    font-size: 8px;
+  }
+
+  .siswa-quick-arrow {
+    display: none;
+  }
+
+  .siswa-dashboard-grid {
+    gap: 14px;
+  }
+
+  .siswa-panel {
+    padding: 17px;
+    border-radius: 15px;
+  }
+
+  .siswa-panel-heading {
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .siswa-panel-heading h2 {
+    font-size: 14px;
+  }
+
+  .siswa-panel-heading > a {
+    gap: 4px;
+    font-size: 9px;
+  }
+
+  .siswa-result-body {
+    min-height: 0;
+    padding: 17px 12px;
+    gap: 15px;
+  }
+
+  .siswa-result-circle {
+    width: 70px;
+    height: 70px;
+    border-width: 5px;
+  }
+
+  .siswa-result-circle span {
+    font-size: 29px;
+  }
+
+  .siswa-result-info h3 {
+    font-size: 12px;
+  }
+
+  .siswa-result-info p {
+    font-size: 9px;
+  }
+
+  .siswa-announcement-item {
+    padding: 13px;
+    gap: 10px;
+  }
+
+  .siswa-announcement-icon {
+    width: 35px;
+    min-width: 35px;
+    height: 35px;
+  }
+
+  .siswa-motivation {
+    min-height: 120px;
+    padding: 17px;
+    gap: 12px;
+  }
+
+  .siswa-motivation-icon {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    font-size: 21px;
+  }
+
+  .siswa-motivation h2 {
+    font-size: 13px;
+  }
+
+  .siswa-footer {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .siswa-quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .siswa-quick-card {
+    min-height: 70px;
+  }
+
+  .siswa-result-body {
+    align-items: flex-start;
+  }
+
+  .siswa-result-circle {
+    width: 55px;
+    height: 55px;
+  }
+
+  .siswa-result-circle span {
+    font-size: 24px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.app {
+  --green: #236644;
+  --green-dark: #174b31;
+  --green-light: #eaf4eb;
+  --text: #20352a;
+  --muted: #7a897f;
+  --line: #e5ebe5;
+
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7f4;
+  color: var(--text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+.content {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 24px 32px 20px;
+}
+
+.breadcrumb {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.breadcrumb a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 185px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  overflow: hidden;
+  padding: 30px 36px;
+  border-radius: 18px;
+  background: linear-gradient(115deg, #e8f3e8, #f6faf4 70%, #d9ebd7);
+}
+
+.heroText {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.hero h1 {
+  margin: 12px 0 8px;
+  color: var(--green-dark);
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  max-width: 540px;
+  margin: 0;
+  color: #64786a;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.heroIcon {
+  width: 115px;
+  flex-shrink: 0;
+  color: #76a879;
+}
+
+.heroIcon svg {
+  display: block;
+  width: 100%;
+}
+
+.notice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  padding: 15px 18px;
+  border: 1px solid #dbe9d9;
+  border-radius: 12px;
+  background: #f0f7ed;
+}
+
+.noticeIcon {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 50%;
+  background: #d7e9d2;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.notice p {
+  margin: 0;
+  color: #526b58;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.notice strong {
+  color: var(--green-dark);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.card {
+  padding: 27px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgb(35 70 45 / 3%);
+}
+
+.cardHeading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 25px;
+}
+
+.headingIcon {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.cardHeading h2 {
+  margin: 0 0 5px;
+  color: #233d2d;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.cardHeading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.field > span {
+  color: #334b3a;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #dce5dc;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input,
+.field select {
+  height: 48px;
+  padding: 0 13px;
+}
+
+.field textarea {
+  min-height: 100px;
+  padding: 13px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #a1aca3;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: #4b9161;
+  box-shadow: 0 0 0 3px rgb(49 120 69 / 10%);
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.uploadGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.uploadCard {
+  min-width: 0;
+  padding: 19px;
+  border: 1px solid #e1e9e1;
+  border-radius: 13px;
+  background: #fcfdfb;
+}
+
+.uploadTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.fileIcon {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+  border-radius: 11px;
+  background: #eaf4e8;
+  color: var(--green);
+}
+
+.fileIcon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.required {
+  padding: 5px 8px;
+  border-radius: 20px;
+  background: #fff1e7;
+  color: #a85b22;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.uploadCard h3 {
+  margin: 0 0 7px;
+  color: #294232;
+  font-size: 14px;
+}
+
+.uploadCard > p {
+  min-height: 36px;
+  margin: 0 0 17px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.dropzone {
+  display: flex;
+  min-height: 137px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px;
+  border: 1.5px dashed #b9d1b8;
+  border-radius: 10px;
+  background: #f5faf3;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.dropzone:hover {
+  border-color: var(--green);
+  background: #edf6ea;
+}
+
+.dropzone input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.uploadIcon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 50%;
+  background: #deedd9;
+  color: var(--green);
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.dropzone strong {
+  color: var(--green);
+  font-size: 12px;
+}
+
+.dropzone > span:last-child {
+  color: #849187;
+  font-size: 10px;
+}
+
+.selectedFile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 9px;
+  border: 1px solid #dcebd9;
+  border-radius: 8px;
+  background: #f1f8ef;
+}
+
+.fileCheck {
+  color: var(--green);
+  font-weight: 800;
+}
+
+.fileName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: #3d6047;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.removeFile {
+  border: 0;
+  background: transparent;
+  color: #a34b42;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.feedback {
+  padding: 14px 16px;
+  border: 1px solid #dce8d9;
+  border-radius: 10px;
+  background: #f0f7ed;
+  color: #315b3b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.formFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 4px 0 10px;
+}
+
+.formFooter p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.formFooter p span {
+  color: #c34f40;
+  font-weight: 800;
+}
+
+.submitButton {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.submitButton:hover {
+  transform: translateY(-1px);
+  background: var(--green-dark);
+}
+
+.submitButton span {
+  font-size: 19px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 24px 0 10px;
+  color: #8b968d;
+  font-size: 11px;
+}
+
+@media (max-width: 1100px) {
+  .content {
+    padding: 22px 20px;
+  }
+
+  .uploadGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .content {
+    padding: 16px 13px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 25px 21px;
+  }
+
+  .heroIcon {
+    width: 65px;
+  }
+
+  .hero h1 {
+    font-size: 25px;
+  }
+
+  .hero p {
+    font-size: 12px;
+  }
+
+  .card {
+    padding: 19px 15px;
+  }
+
+  .cardHeading {
+    align-items: flex-start;
+    margin-bottom: 21px;
+  }
+
+  .cardHeading h2 {
+    font-size: 16px;
+  }
+
+  .fields,
+  .uploadGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fullWidth {
+    grid-column: auto;
+  }
+
+  .uploadCard > p {
+    min-height: 0;
+  }
+
+  .dropzone {
+    min-height: 115px;
+  }
+
+  .formFooter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field input,
+  .field select,
+  .field textarea,
+  .dropzone,
+  .submitButton {
+    transition: none;
+  }
+}

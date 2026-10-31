@@ -4,7 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Lora } from "next/font/google";
-import { submitLogin } from "@/lib/login-client";
+import { submitLogin } from "../../../lib/login-client.js"; 
+
 
 const lora = Lora({ subsets: ["latin"], style: ["normal", "italic"], weight: "400" });
 
